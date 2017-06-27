@@ -130,7 +130,7 @@ public class DlgSelect extends JDialog implements IDlg {
 			Company comp=(Company)obj;
 			comp.setId(Integer.parseInt(model.getValueAt(row, 0).toString()));
 			comp.setName(model.getValueAt(row, 1).toString());
-			comp.setProfit(Float.parseFloat(model.getValueAt(row, 2).toString()));
+			comp.setYearprofit(Float.parseFloat(model.getValueAt(row, 2).toString()));
 			comp.setAddress(model.getValueAt(row, 3).toString());
 			comp.setPhnumber(model.getValueAt(row, 4).toString());
 			Secorg sec=new Secorg();
@@ -167,7 +167,7 @@ public class DlgSelect extends JDialog implements IDlg {
 			Rms rms=(Rms)obj;
 			rms.setId(Integer.parseInt(model.getValueAt(row, 0).toString()));
 			rms.setName(model.getValueAt(row, 1).toString());
-			rms.setSize(Integer.parseInt(model.getValueAt(row, 2).toString()));
+			rms.setSupplysize(Integer.parseInt(model.getValueAt(row, 2).toString()));
 			Material mat=new Material();
 			mat.setName(model.getValueAt(row, 3).toString());
 			rms.setMaterial(mat);

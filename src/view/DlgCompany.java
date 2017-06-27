@@ -203,7 +203,7 @@ public void setRMS(String rms) {
 					String adr=textField_4.getText();
 					String num=textField_5.getText();
 					comp.setName(name);
-					comp.setProfit(Float.parseFloat(profit));
+					comp.setYearprofit(Float.parseFloat(profit));
 					comp.setAddress(adr);
 					comp.setPhnumber(num);
 					comp.setRms(rms);

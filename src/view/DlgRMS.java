@@ -152,7 +152,7 @@ public void setMaterial(String mat) {
 					String name=textField_2.getText();
 					String size=textField_3.getText();
 					rms.setName(name);
-					rms.setSize(Integer.parseInt(size));
+					rms.setSupplysize(Integer.parseInt(size));
 					rms.setMaterial(mat);
 				} catch (NumberFormatException e) {
 					JOptionPane.showMessageDialog(null, e, this.getTitle(),
