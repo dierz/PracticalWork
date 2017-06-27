@@ -13,7 +13,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.TableModel;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import model.Company;
 import model.Product;
 import model.Sm;
@@ -41,7 +41,7 @@ public class DlgProduct extends JDialog implements IDlg {
 	/**
 	 * Launch the application.
 	 */
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 
@@ -145,8 +145,8 @@ public class DlgProduct extends JDialog implements IDlg {
 	}
 	protected void selectSM() {
 		if (textField.isEnabled()) {
-			TableModel model = controller.getModel("SM");
-			DlgSelect dlg = new DlgSelect(model,"SM");
+			TableModel model = controller.getModel("Sm");
+			DlgSelect dlg = new DlgSelect(model,"Sm");
 			dlg.setVisible(true);
 			sm = (Sm) dlg.getObject();
 			textField_1.setText(sm.toString());

@@ -11,11 +11,10 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import model.Material;
 
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -41,7 +40,7 @@ public class DlgMaterial extends JDialog implements IDlg {
 	public void setWeight(String weight) {
 		textField_2.setText(weight);
 	}
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 

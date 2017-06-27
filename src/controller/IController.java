@@ -4,11 +4,9 @@ import javax.swing.table.TableModel;
 
 public interface IController {
 
-	void createDB();
-
-	JdbcTableModel getModel(String className);
+	public TableModel getModel(String className);
 	public void add(Object obj);
 	public void edit(int id, Object obj);
 	public void delete(int id, String className);
-	public TableModel doQuery2();
+	public TableModel doQuery1();
 }

@@ -21,7 +21,6 @@ import model.Secorg;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.awt.event.ActionEvent;
 
 public class DlgSelect extends JDialog implements IDlg {
@@ -138,7 +137,7 @@ public class DlgSelect extends JDialog implements IDlg {
 			Rms rms=new Rms();
 			rms.setName(model.getValueAt(row, 6).toString());
 			comp.setSecorg(sec);
-			comp.setRms(rms);
+			comp.setRm(rms);
 			}
 		else if (obj instanceof Guard){
 			Guard g=(Guard)obj;

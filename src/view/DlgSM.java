@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import model.Sm;
 
 import java.awt.event.ActionListener;
@@ -31,7 +31,7 @@ public class DlgSM extends JDialog implements IDlg {
 	/**
 	 * Launch the application.
 	 */
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 	public void setName(String name) {

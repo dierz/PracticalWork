@@ -13,7 +13,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.TableModel;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import model.Company;
 import model.Rms;
 import model.Secorg;
@@ -43,7 +43,7 @@ public class DlgCompany extends JDialog implements IDlg {
 	/**
 	 * Launch the application.
 	 */
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 
@@ -150,8 +150,8 @@ public class DlgCompany extends JDialog implements IDlg {
 
 	protected void selectSecOrg() {
 		if (textField.isEnabled()) {
-			TableModel model = controller.getModel("SecOrg");
-			DlgSelect dlg = new DlgSelect(model,"SecOrg");
+			TableModel model = controller.getModel("Secorg");
+			DlgSelect dlg = new DlgSelect(model,"Secorg");
 			dlg.setVisible(true);
 			sec = (Secorg) dlg.getObject();
 			textField.setText(sec.toString());
@@ -159,8 +159,8 @@ public class DlgCompany extends JDialog implements IDlg {
 	}
 	protected void selectRMS() {
 		if (textField.isEnabled()) {
-			TableModel model = controller.getModel("RMS");
-			DlgSelect dlg = new DlgSelect(model,"RMS");
+			TableModel model = controller.getModel("Rms");
+			DlgSelect dlg = new DlgSelect(model,"Rms");
 			dlg.setVisible(true);
 			rms = (Rms) dlg.getObject();
 			textField_1.setText(rms.toString());
@@ -206,7 +206,7 @@ public void setRMS(String rms) {
 					comp.setYearprofit(Float.parseFloat(profit));
 					comp.setAddress(adr);
 					comp.setPhnumber(num);
-					comp.setRms(rms);
+					comp.setRm(rms);
 					comp.setSecorg(sec);
 				} catch (NumberFormatException e) {
 					JOptionPane.showMessageDialog(null, e, this.getTitle(),

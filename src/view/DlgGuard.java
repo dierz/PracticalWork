@@ -13,10 +13,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.TableModel;
 
 import controller.IController;
-import controller.JdbsController;
-import model.Company;
+import controller.JpaController;
 import model.Guard;
-import model.Rms;
 import model.Secorg;
 
 import java.awt.event.ActionListener;
@@ -42,7 +40,7 @@ public class DlgGuard extends JDialog implements IDlg {
 	/**
 	 * Launch the application.
 	 */
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 
@@ -135,8 +133,8 @@ public class DlgGuard extends JDialog implements IDlg {
 
 	protected void selectSecOrg() {
 		if (textField.isEnabled()) {
-			TableModel model = controller.getModel("SecOrg");
-			DlgSelect dlg = new DlgSelect(model,"SecOrg");
+			TableModel model = controller.getModel("Secorg");
+			DlgSelect dlg = new DlgSelect(model,"Secorg");
 			dlg.setVisible(true);
 			sec = (Secorg) dlg.getObject();
 			textField.setText(sec.toString());
@@ -175,7 +173,7 @@ public void setSecOrg(String sec) {
 					String rank=textField_5.getText();
 					guard.setFio(fio);
 					guard.setAge(Integer.parseInt(age));
-					guard.setExp(Integer.parseInt(age));
+					guard.setExp(Integer.parseInt(exp));
 					guard.setRank(rank);
 					guard.setSecorg(sec);
 				} catch (NumberFormatException e) {

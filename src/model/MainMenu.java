@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JDialog;
@@ -10,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableModel;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import view.DlgCompany;
 import view.DlgGuard;
 import view.DlgMaterial;
@@ -61,9 +60,9 @@ public class MainMenu extends JFrame {
 				|| className.equals("Guard")
 				|| className.equals("Material")
 				|| className.equals("Product")
-				|| className.equals("RMS")
-				|| className.equals("SecOrg")
-				|| className.equals("SM");
+				|| className.equals("Rms")
+				|| className.equals("Secorg")
+				|| className.equals("Sm");
 	}
 
 	private int getSelectedRow() {
@@ -91,14 +90,6 @@ public class MainMenu extends JFrame {
 		
 		JMenu mnTable = new JMenu("Table");
 		menuBar.add(mnTable);
-		
-		JMenuItem mntmCreateDb = new JMenuItem("Create DB");
-		mntmCreateDb.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				onCreateDB();
-			}
-		});
-		mnTable.add(mntmCreateDb);
 		
 		JMenuItem mntmCompany = new JMenuItem("Company");
 		mntmCompany.addActionListener(new ActionListener() {
@@ -189,7 +180,6 @@ public class MainMenu extends JFrame {
 		JMenuItem mntmInvalid = new JMenuItem("invalid");
 		mntmInvalid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				onQuery1();
 			}
 		});
 		mnQuery.add(mntmInvalid);
@@ -200,11 +190,6 @@ public class MainMenu extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-	}
-	protected void onQuery1() {
-		className = "";
-		table.setModel(controller.doQuery2());
-
 	}
 
 	protected void onDelete() {
@@ -229,13 +214,13 @@ public class MainMenu extends JFrame {
 		IDlg dlg = null;
 		if (className.equals("Material")) {
 			dlg = new DlgMaterial();
-			((DlgMaterial) dlg).setController((JdbsController) controller);
+			((DlgMaterial) dlg).setController((JpaController) controller);
 			((DlgMaterial) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgMaterial) dlg).setDensity(model.getValueAt(row, 2).toString());
 			((DlgMaterial) dlg).setWeight(model.getValueAt(row, 3).toString());
 		} else if (className.equals("Company")) {
 			dlg = new DlgCompany();
-			((DlgCompany) dlg).setController((JdbsController) controller);
+			((DlgCompany) dlg).setController((JpaController) controller);
 			((DlgCompany) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgCompany) dlg).setProfit(model.getValueAt(row, 2).toString());
 			((DlgCompany) dlg).setAddress(model.getValueAt(row, 3).toString());
@@ -244,7 +229,7 @@ public class MainMenu extends JFrame {
 			((DlgCompany) dlg).setRMS(model.getValueAt(row, 6).toString());
 		} else if (className.equals("Guard")) {
 			dlg = new DlgGuard();
-			((DlgGuard) dlg).setController((JdbsController) controller);
+			((DlgGuard) dlg).setController((JpaController) controller);
 			((DlgGuard) dlg).setFIO(model.getValueAt(row, 1).toString());
 			((DlgGuard) dlg).setAge(model.getValueAt(row, 2).toString());
 			((DlgGuard) dlg).setExp(model.getValueAt(row, 3).toString());
@@ -252,26 +237,26 @@ public class MainMenu extends JFrame {
 			((DlgGuard) dlg).setSecOrg(model.getValueAt(row, 5).toString());
 		} else if (className.equals("Product")) {
 			dlg = new DlgProduct();
-			((DlgProduct) dlg).setController((JdbsController) controller);
+			((DlgProduct) dlg).setController((JpaController) controller);
 			((DlgProduct) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgProduct) dlg).setAmount(model.getValueAt(row, 2).toString());
 			((DlgProduct) dlg).setCompany(model.getValueAt(row, 3).toString());
 			((DlgProduct) dlg).setSM(model.getValueAt(row, 4).toString());
-		} else if (className.equals("RMS")) {
+		} else if (className.equals("Rms")) {
 			dlg = new DlgRMS();
-			((DlgRMS) dlg).setController((JdbsController) controller);
+			((DlgRMS) dlg).setController((JpaController) controller);
 			((DlgRMS) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgRMS) dlg).setSize(model.getValueAt(row, 2).toString());
 			((DlgRMS) dlg).setMaterial(model.getValueAt(row, 3).toString());
-		} else if (className.equals("SecOrg")) {
+		} else if (className.equals("Secorg")) {
 			dlg = new DlgSecOrg();
-			((DlgSecOrg) dlg).setController((JdbsController) controller);
+			((DlgSecOrg) dlg).setController((JpaController) controller);
 			((DlgSecOrg) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgSecOrg) dlg).setAddress(model.getValueAt(row, 2).toString());
 			((DlgSecOrg) dlg).setHead(model.getValueAt(row, 3).toString());
-		} else if (className.equals("SM")) {
+		} else if (className.equals("Sm")) {
 			dlg = new DlgSM();
-			((DlgSM) dlg).setController((JdbsController) controller);
+			((DlgSM) dlg).setController((JpaController) controller);
 			((DlgSM) dlg).setName(model.getValueAt(row, 1).toString());
 			((DlgSM) dlg).setAddress(model.getValueAt(row, 2).toString());
 			((DlgSM) dlg).setWebsite(model.getValueAt(row, 3).toString());
@@ -294,22 +279,22 @@ public class MainMenu extends JFrame {
 		IDlg dlg = null;
 		if (className.equals("Material")){
 			dlg = new DlgMaterial();}
-		else if (className.equals("SecOrg")){
+		else if (className.equals("Secorg")){
 			dlg = new DlgSecOrg();}
-		else if (className.equals("SM")){
+		else if (className.equals("Sm")){
 			dlg = new DlgSM();}
 		else if(className.equals("Company")){
 			dlg=new DlgCompany();
-		((DlgCompany) dlg).setController((JdbsController) controller);}
-		else if(className.equals("RMS")){
+		((DlgCompany) dlg).setController((JpaController) controller);}
+		else if(className.equals("Rms")){
 			dlg=new DlgRMS();
-		((DlgRMS) dlg).setController((JdbsController) controller);}
+		((DlgRMS) dlg).setController((JpaController) controller);}
 		else if(className.equals("Guard")){
 			dlg=new DlgGuard();
-		((DlgGuard) dlg).setController((JdbsController) controller);}
+		((DlgGuard) dlg).setController((JpaController) controller);}
 		else if(className.equals("Product")){
 			dlg=new DlgProduct();
-		((DlgProduct) dlg).setController((JdbsController) controller);}
+		((DlgProduct) dlg).setController((JpaController) controller);}
 		if (dlg == null)
 			return;
 		((JDialog) dlg).setVisible(true);
@@ -339,7 +324,7 @@ public class MainMenu extends JFrame {
 		table.setModel(controller.getModel(className));
 	}
 	protected void showRMS() {
-		className="RMS";
+		className="Rms";
 		table.setModel(controller.getModel(className));
 	}
 	protected void showProduct() {
@@ -347,16 +332,12 @@ public class MainMenu extends JFrame {
 		table.setModel(controller.getModel(className));
 	}
 	protected void showSecOrg() {
-		className="SecOrg";
+		className="Secorg";
 		table.setModel(controller.getModel(className));
 	}
 	protected void showSM() {
-		className="SM";
+		className="Sm";
 		table.setModel(controller.getModel(className));
-	}
-
-	protected void onCreateDB() {
-		controller.createDB();
 	}
 
 	public JTable getTable() {

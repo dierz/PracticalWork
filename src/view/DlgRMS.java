@@ -13,7 +13,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.TableModel;
 
 import controller.IController;
-import controller.JdbsController;
+import controller.JpaController;
 import model.Material;
 import model.Rms;
 
@@ -38,7 +38,7 @@ public class DlgRMS extends JDialog implements IDlg {
 	/**
 	 * Launch the application.
 	 */
-	public void setController(JdbsController controller) {
+	public void setController(JpaController controller) {
 		this.controller = controller;
 	}
 
