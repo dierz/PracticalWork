@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<center>
+		<form action="SelectTable" target="forTable" name="selectTable"
+			method="POST">
+			<b>Виберіть таблицю</b>
+			<table width="80">
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Company"> Company</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Guard"> Guard</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Material"> Material</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Product"> Product</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Rms"> RMS</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Secorg"> SecOrg</td>
+				</tr>
+				<tr>
+					<td align="left"><input type="radio" name="className"
+						value="Sm"> SalesMarket</td>
+				</tr>
+			</table>
+			<input type="submit" value="Завантажити">
+			<p></p>
+		</form>
+
+		<form action="SelectQuery" target="forTable" name="selectQuery"
+			method="POST">
+			<b>Вибір запиту до бази</b>
+			<select size="1" name="query">
+				<option value="q">
+				<option value="neud">
+			</select>
+			<p>
+				<input type="submit" value="Виконати запит">
+			<p>
+		</form>
+</center>
+
+</body>
+</html>

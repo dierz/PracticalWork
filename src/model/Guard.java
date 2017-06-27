@@ -148,5 +148,8 @@ public class Guard implements Serializable, IModel {
 		return true;
 	}
 	
-
+	@Override
+	public int getObjectId() {
+		return id;
+	}
 }

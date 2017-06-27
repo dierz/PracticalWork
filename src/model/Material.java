@@ -148,5 +148,9 @@ public class Material implements Serializable, IModel {
 			return false;
 		return true;
 	}
+	@Override
+	public int getObjectId() {
+		return id;
+	}
 
 }

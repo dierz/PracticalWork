@@ -166,5 +166,17 @@ public class JpaController implements IController {
 					return true;
 		return false;
 	}
+	public void operateObject(IModel obj, int operation) {
+		
+		if(operation==1){
+			add(obj);
+		}
+		else if(operation==2){
+			edit(obj.getId(),obj);
+		}
+		else if(operation==4){
+			delete(obj.getId(),obj.getClass().getSimpleName());
+		}
+	}
 
 }

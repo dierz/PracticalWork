@@ -6,5 +6,6 @@ public interface IModel {
 	int getId();
 	void updateWith(Object mask);
 	void setObjectId(int id);
+	public int getObjectId();
 
 }

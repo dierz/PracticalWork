@@ -177,5 +177,9 @@ public class Secorg implements Serializable, IModel {
 			return false;
 		return true;
 	}
+	@Override
+	public int getObjectId() {
+		return id;
+	}
 
 }
