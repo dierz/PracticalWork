@@ -12,7 +12,7 @@ import javax.swing.border.TitledBorder;
 
 import controller.IController;
 import controller.JdbsController;
-import model.SM;
+import model.Sm;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,7 +22,7 @@ import java.awt.Color;
 public class DlgSM extends JDialog implements IDlg {
 
 	private final JPanel contentPanel = new JPanel();
-	private SM sm;
+	private Sm sm;
 	private IController controller;
 	static DlgSM dialog;
 	private JTextField textField;
@@ -116,7 +116,7 @@ public class DlgSM extends JDialog implements IDlg {
 	}
 
 	protected void onStore() {
-		sm = new SM();
+		sm = new Sm();
 		String name = textField.getText();
 		String adr = textField_1.getText();
 		String site = textField_2.getText();

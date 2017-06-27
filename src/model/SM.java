@@ -1,6 +1,6 @@
 package model;
 
-public class SM {
+public class Sm {
 	protected int id;
 	protected String name;
 	protected String address;

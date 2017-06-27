@@ -12,7 +12,7 @@ import javax.swing.border.TitledBorder;
 
 import controller.IController;
 import controller.JdbsController;
-import model.SecOrg;
+import model.Secorg;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,7 +22,7 @@ import java.awt.Color;
 public class DlgSecOrg extends JDialog implements IDlg {
 
 	private final JPanel contentPanel = new JPanel();
-	private SecOrg sec;
+	private Secorg sec;
 	private IController controller;
 	static DlgSecOrg dialog;
 	private JTextField textField;
@@ -116,7 +116,7 @@ public class DlgSecOrg extends JDialog implements IDlg {
 	}
 
 	protected void onStore() {
-		sec = new SecOrg();
+		sec = new Secorg();
 		String name = textField.getText();
 		String adr = textField_1.getText();
 		String head = textField_2.getText();

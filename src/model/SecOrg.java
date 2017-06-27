@@ -1,6 +1,6 @@
 package model;
 
-public class SecOrg {
+public class Secorg {
 	protected int id;
 	protected String name;
 	protected String address;

@@ -5,7 +5,7 @@ public class Product {
 	protected String name;
 	protected int amount;
 	protected Company company;
-	protected SM sm;
+	protected Sm sm;
 	public int getId() {
 		return id;
 	}
@@ -30,10 +30,10 @@ public class Product {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-	public SM getSm() {
+	public Sm getSm() {
 		return sm;
 	}
-	public void setSm(SM sm) {
+	public void setSm(Sm sm) {
 		this.sm = sm;
 	}
 	@Override

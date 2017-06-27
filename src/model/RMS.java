@@ -1,9 +1,9 @@
 package model;
 
-public class RMS {
+public class Rms {
 	protected int id;
 	protected String name;
-	protected int size;
+	protected int supplysize;
 	protected Material material;
 	public int getId() {
 		return id;
@@ -17,11 +17,12 @@ public class RMS {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getSize() {
-		return size;
+
+	public int getSupplysize() {
+		return supplysize;
 	}
-	public void setSize(int size) {
-		this.size = size;
+	public void setSupplysize(int supplysize) {
+		this.supplysize = supplysize;
 	}
 	public Material getMaterial() {
 		return material;
@@ -31,7 +32,7 @@ public class RMS {
 	}
 	@Override
 	public String toString() {
-		return "RMS [id=" + id + ", name=" + name + ", size=" + size + ", material=" + material.name + "]";
+		return "RMS [id=" + id + ", name=" + name + ", size=" + supplysize + ", material=" + material.name + "]";
 	}
 	
 }

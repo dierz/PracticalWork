@@ -6,7 +6,7 @@ public class Guard {
 	protected int age;
 	protected int exp;
 	protected String rank;
-	protected SecOrg secorg;
+	protected Secorg secorg;
 	public int getId() {
 		return id;
 	}
@@ -37,10 +37,10 @@ public class Guard {
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
-	public SecOrg getSecorg() {
+	public Secorg getSecorg() {
 		return secorg;
 	}
-	public void setSecorg(SecOrg secorg) {
+	public void setSecorg(Secorg secorg) {
 		this.secorg = secorg;
 	}
 	@Override

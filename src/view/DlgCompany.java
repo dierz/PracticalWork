@@ -15,8 +15,8 @@ import javax.swing.table.TableModel;
 import controller.IController;
 import controller.JdbsController;
 import model.Company;
-import model.RMS;
-import model.SecOrg;
+import model.Rms;
+import model.Secorg;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,8 +31,8 @@ public class DlgCompany extends JDialog implements IDlg {
 	private JTextField textField;
 	private JTextField textField_2;
 	private Company comp;
-	private SecOrg sec;
-	private RMS rms;
+	private Secorg sec;
+	private Rms rms;
 	private IController controller;
 	private JTextField textField_1;
 	private JTextField textField_3;
@@ -153,7 +153,7 @@ public class DlgCompany extends JDialog implements IDlg {
 			TableModel model = controller.getModel("SecOrg");
 			DlgSelect dlg = new DlgSelect(model,"SecOrg");
 			dlg.setVisible(true);
-			sec = (SecOrg) dlg.getObject();
+			sec = (Secorg) dlg.getObject();
 			textField.setText(sec.toString());
 		}
 	}
@@ -162,7 +162,7 @@ public class DlgCompany extends JDialog implements IDlg {
 			TableModel model = controller.getModel("RMS");
 			DlgSelect dlg = new DlgSelect(model,"RMS");
 			dlg.setVisible(true);
-			rms = (RMS) dlg.getObject();
+			rms = (Rms) dlg.getObject();
 			textField_1.setText(rms.toString());
 		}
 	}

@@ -16,8 +16,8 @@ import controller.IController;
 import controller.JdbsController;
 import model.Company;
 import model.Guard;
-import model.RMS;
-import model.SecOrg;
+import model.Rms;
+import model.Secorg;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class DlgGuard extends JDialog implements IDlg {
 	private JTextField textField;
 	private JTextField textField_2;
 	private Guard guard;
-	private SecOrg sec;
+	private Secorg sec;
 	private IController controller;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -138,7 +138,7 @@ public class DlgGuard extends JDialog implements IDlg {
 			TableModel model = controller.getModel("SecOrg");
 			DlgSelect dlg = new DlgSelect(model,"SecOrg");
 			dlg.setVisible(true);
-			sec = (SecOrg) dlg.getObject();
+			sec = (Secorg) dlg.getObject();
 			textField.setText(sec.toString());
 		}
 	}

@@ -12,9 +12,9 @@ import model.Company;
 import model.Guard;
 import model.Material;
 import model.Product;
-import model.RMS;
-import model.SM;
-import model.SecOrg;
+import model.Rms;
+import model.Sm;
+import model.Secorg;
 
 public class JdbsController implements IController {
 
@@ -126,7 +126,7 @@ public class JdbsController implements IController {
 				pst = conn.prepareStatement(
 						"insert into COMPANY(NAME, YEARPROFIT, ADDRESS, PHNUMBER, IDSECORG, IDRMS) values(?,?,?,?,?,?)");
 				pst.setString(1, ((Company) obj).getName());
-				pst.setFloat(2, ((Company) obj).getProfit());
+				pst.setFloat(2, ((Company) obj).getYearprofit());
 				pst.setString(3, ((Company) obj).getAddress());
 				pst.setString(4, ((Company) obj).getPhnumber());
 				pst.setInt(5, ((Company) obj).getSecorg().getId());
@@ -136,11 +136,11 @@ public class JdbsController implements IController {
 				pst.setString(1, ((Material) obj).getName());
 				pst.setFloat(2, ((Material) obj).getDensity());
 				pst.setFloat(3, ((Material) obj).getWeight());
-			} else if (obj instanceof SM) {
+			} else if (obj instanceof Sm) {
 				pst = conn.prepareStatement("insert into SM(NAME, ADDRESS, WEBSITE) values(?,?,?)");
-				pst.setString(1, ((SM) obj).getName());
-				pst.setString(2, ((SM) obj).getAddress());
-				pst.setString(3, ((SM) obj).getWebsite());
+				pst.setString(1, ((Sm) obj).getName());
+				pst.setString(2, ((Sm) obj).getAddress());
+				pst.setString(3, ((Sm) obj).getWebsite());
 			} else if (obj instanceof Guard) {
 				pst = conn.prepareStatement("insert into GUARD(FIO, AGE, EXP, RANK, IDSECORG) values(?,?,?,?,?)");
 				pst.setString(1, ((Guard) obj).getFio());
@@ -154,16 +154,16 @@ public class JdbsController implements IController {
 				pst.setInt(2, ((Product) obj).getAmount());
 				pst.setInt(3, ((Product) obj).getCompany().getId());
 				pst.setInt(4, ((Product) obj).getSm().getId());
-			} else if (obj instanceof RMS) {
+			} else if (obj instanceof Rms) {
 				pst = conn.prepareStatement("insert into RMS(NAME, SUPPLYSIZE, IDMATERIAL) values(?,?,?)");
-				pst.setString(1, ((RMS) obj).getName());
-				pst.setInt(2, ((RMS) obj).getSize());
-				pst.setInt(3, ((RMS) obj).getMaterial().getId());
-			} else if (obj instanceof SecOrg) {
+				pst.setString(1, ((Rms) obj).getName());
+				pst.setInt(2, ((Rms) obj).getSupplysize());
+				pst.setInt(3, ((Rms) obj).getMaterial().getId());
+			} else if (obj instanceof Secorg) {
 				pst = conn.prepareStatement("insert into SECORG(NAME, ADDRESS, HEAD) values(?,?,?)");
-				pst.setString(1, ((SecOrg) obj).getName());
-				pst.setString(2, ((SecOrg) obj).getAddress());
-				pst.setString(3, ((SecOrg) obj).getHead());
+				pst.setString(1, ((Secorg) obj).getName());
+				pst.setString(2, ((Secorg) obj).getAddress());
+				pst.setString(3, ((Secorg) obj).getHead());
 			}
 			if (pst != null) {
 				pst.executeUpdate();
@@ -187,7 +187,7 @@ public class JdbsController implements IController {
 				pst = conn.prepareStatement(
 						"update COMPANY set  NAME = ?, YEARPROFIT = ?, ADDRESS = ?, PHNUMBER = ? where ID = ?");
 				pst.setString(1, ((Company) obj).getName());
-				pst.setFloat(2, ((Company) obj).getProfit());
+				pst.setFloat(2, ((Company) obj).getYearprofit());
 				pst.setString(3, ((Company) obj).getAddress());
 				pst.setString(4, ((Company) obj).getPhnumber());
 				pst.setInt(5, id);
@@ -209,22 +209,22 @@ public class JdbsController implements IController {
 				pst.setString(1, ((Product) obj).getName());
 				pst.setInt(2, ((Product) obj).getAmount());
 				pst.setInt(3, id);
-			} else if (obj instanceof RMS) {
+			} else if (obj instanceof Rms) {
 				pst = conn.prepareStatement("update RMS set  NAME = ?, SUPPLYSIZE = ? where ID = ?");
-				pst.setString(1, ((RMS) obj).getName());
-				pst.setInt(2, ((RMS) obj).getSize());
+				pst.setString(1, ((Rms) obj).getName());
+				pst.setInt(2, ((Rms) obj).getSupplysize());
 				pst.setInt(3, id);
-			} else if (obj instanceof SecOrg) {
+			} else if (obj instanceof Secorg) {
 				pst = conn.prepareStatement("update SECORG set  NAME = ?, ADDRESS = ?, HEAD = ? where ID = ?");
-				pst.setString(1, ((SecOrg) obj).getName());
-				pst.setString(2, ((SecOrg) obj).getAddress());
-				pst.setString(3, ((SecOrg) obj).getHead());
+				pst.setString(1, ((Secorg) obj).getName());
+				pst.setString(2, ((Secorg) obj).getAddress());
+				pst.setString(3, ((Secorg) obj).getHead());
 				pst.setInt(4, id);
-			} else if (obj instanceof SM) {
+			} else if (obj instanceof Sm) {
 				pst = conn.prepareStatement("update SM set  NAME = ?, ADDRESS = ?, WEBSITE = ? where ID = ?");
-				pst.setString(1, ((SM) obj).getName());
-				pst.setString(2, ((SM) obj).getAddress());
-				pst.setString(3, ((SM) obj).getWebsite());
+				pst.setString(1, ((Sm) obj).getName());
+				pst.setString(2, ((Sm) obj).getAddress());
+				pst.setString(3, ((Sm) obj).getWebsite());
 				pst.setInt(4, id);
 			}
 			if (pst != null) {

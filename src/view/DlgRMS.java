@@ -15,7 +15,7 @@ import javax.swing.table.TableModel;
 import controller.IController;
 import controller.JdbsController;
 import model.Material;
-import model.RMS;
+import model.Rms;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -29,7 +29,7 @@ public class DlgRMS extends JDialog implements IDlg {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
 	private JTextField textField_2;
-	private RMS rms;
+	private Rms rms;
 	private Material mat;
 	private IController controller;
 	private JTextField textField_3;
@@ -148,7 +148,7 @@ public void setMaterial(String mat) {
 
 	protected void onStore() {
 		try {
-			rms = new RMS();
+			rms = new Rms();
 					String name=textField_2.getText();
 					String size=textField_3.getText();
 					rms.setName(name);

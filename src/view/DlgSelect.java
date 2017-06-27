@@ -14,9 +14,9 @@ import model.Company;
 import model.Guard;
 import model.Material;
 import model.Product;
-import model.RMS;
-import model.SM;
-import model.SecOrg;
+import model.Rms;
+import model.Sm;
+import model.Secorg;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -133,9 +133,9 @@ public class DlgSelect extends JDialog implements IDlg {
 			comp.setProfit(Float.parseFloat(model.getValueAt(row, 2).toString()));
 			comp.setAddress(model.getValueAt(row, 3).toString());
 			comp.setPhnumber(model.getValueAt(row, 4).toString());
-			SecOrg sec=new SecOrg();
+			Secorg sec=new Secorg();
 			sec.setName(model.getValueAt(row, 5).toString());
-			RMS rms=new RMS();
+			Rms rms=new Rms();
 			rms.setName(model.getValueAt(row, 6).toString());
 			comp.setSecorg(sec);
 			comp.setRms(rms);
@@ -147,7 +147,7 @@ public class DlgSelect extends JDialog implements IDlg {
 			g.setAge(Integer.parseInt(model.getValueAt(row, 2).toString()));
 			g.setExp(Integer.parseInt(model.getValueAt(row, 3).toString()));
 			g.setRank(model.getValueAt(row, 4).toString());
-			SecOrg sec=new SecOrg();
+			Secorg sec=new Secorg();
 			sec.setName(model.getValueAt(row, 5).toString());
 			g.setSecorg(sec);
 			}
@@ -158,13 +158,13 @@ public class DlgSelect extends JDialog implements IDlg {
 			prod.setAmount(Integer.parseInt(model.getValueAt(row, 2).toString()));
 			Company comp=new Company();
 			comp.setName(model.getValueAt(row, 3).toString());
-			SM sm=new SM();
+			Sm sm=new Sm();
 			sm.setName(model.getValueAt(row, 4).toString());
 			prod.setCompany(comp);
 			prod.setSm(sm);
 			}
-		else if (obj instanceof RMS){
-			RMS rms=(RMS)obj;
+		else if (obj instanceof Rms){
+			Rms rms=(Rms)obj;
 			rms.setId(Integer.parseInt(model.getValueAt(row, 0).toString()));
 			rms.setName(model.getValueAt(row, 1).toString());
 			rms.setSize(Integer.parseInt(model.getValueAt(row, 2).toString()));
@@ -172,15 +172,15 @@ public class DlgSelect extends JDialog implements IDlg {
 			mat.setName(model.getValueAt(row, 3).toString());
 			rms.setMaterial(mat);
 			}
-		else if(obj instanceof SecOrg){
-			SecOrg sec=(SecOrg)obj;
+		else if(obj instanceof Secorg){
+			Secorg sec=(Secorg)obj;
 			sec.setId(Integer.parseInt(model.getValueAt(row, 0).toString()));
 			sec.setName(model.getValueAt(row, 1).toString());
 			sec.setAddress(model.getValueAt(row, 2).toString());
 			sec.setHead(model.getValueAt(row, 3).toString());
 		}
-		else if(obj instanceof SM){
-			SM sm=(SM)obj;
+		else if(obj instanceof Sm){
+			Sm sm=(Sm)obj;
 			sm.setId(Integer.parseInt(model.getValueAt(row, 0).toString()));
 			sm.setName(model.getValueAt(row, 1).toString());
 			sm.setAddress(model.getValueAt(row, 2).toString());

@@ -16,7 +16,7 @@ import controller.IController;
 import controller.JdbsController;
 import model.Company;
 import model.Product;
-import model.SM;
+import model.Sm;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class DlgProduct extends JDialog implements IDlg {
 	private JTextField textField_2;
 	private Company comp;
 	private Product prod;
-	private SM sm;
+	private Sm sm;
 	private IController controller;
 	private JTextField textField_1;
 	private JTextField textField_3;
@@ -148,7 +148,7 @@ public class DlgProduct extends JDialog implements IDlg {
 			TableModel model = controller.getModel("SM");
 			DlgSelect dlg = new DlgSelect(model,"SM");
 			dlg.setVisible(true);
-			sm = (SM) dlg.getObject();
+			sm = (Sm) dlg.getObject();
 			textField_1.setText(sm.toString());
 		}
 	}
