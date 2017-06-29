@@ -101,12 +101,12 @@ public class Product implements Serializable, IModel {
 		setId(id);
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + amount;
-		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -122,8 +122,6 @@ public class Product implements Serializable, IModel {
 		Product other = (Product) obj;
 		if (amount != other.amount)
 			return false;
-		if (id != other.id)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -131,6 +129,7 @@ public class Product implements Serializable, IModel {
 			return false;
 		return true;
 	}
+
 	@Override
 	public int getObjectId() {
 		return id;

@@ -278,35 +278,82 @@ public class MainMenu extends JFrame {
 		if(!checkClassName()) return;
 		IDlg dlg = null;
 		if (className.equals("Material")){
-			dlg = new DlgMaterial();}
+			dlg = new DlgMaterial();
+			try {
+				controller.addMaterial(dlg.getObject());
+				table.setModel(controller.getModel(className));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+		 								+ className, JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}}
 		else if (className.equals("Secorg")){
-			dlg = new DlgSecOrg();}
+			dlg = new DlgSecOrg();
+			try {
+				controller.addSecorg(dlg.getObject());
+				table.setModel(controller.getModel(className));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+		 								+ className, JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}}
 		else if (className.equals("Sm")){
-			dlg = new DlgSM();}
+			dlg = new DlgSM();
+			try {
+				controller.addSm(dlg.getObject());
+				table.setModel(controller.getModel(className));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+		 								+ className, JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			}}
 		else if(className.equals("Company")){
 			dlg=new DlgCompany();
-		((DlgCompany) dlg).setController((JpaController) controller);}
-		else if(className.equals("Rms")){
-			dlg=new DlgRMS();
-		((DlgRMS) dlg).setController((JpaController) controller);}
-		else if(className.equals("Guard")){
-			dlg=new DlgGuard();
-		((DlgGuard) dlg).setController((JpaController) controller);}
-		else if(className.equals("Product")){
-			dlg=new DlgProduct();
-		((DlgProduct) dlg).setController((JpaController) controller);}
-		if (dlg == null)
-			return;
-		((JDialog) dlg).setVisible(true);
+		((DlgCompany) dlg).setController((JpaController) controller);
 		try {
-			controller.add(dlg.getObject());
+			controller.addCompany(dlg.getObject());
 			table.setModel(controller.getModel(className));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
 	 								+ className, JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
-		}
-
+		}}
+		else if(className.equals("Rms")){
+			dlg=new DlgRMS();
+		((DlgRMS) dlg).setController((JpaController) controller);
+		try {
+			controller.addRms(dlg.getObject());
+			table.setModel(controller.getModel(className));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+	 								+ className, JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}}
+		else if(className.equals("Guard")){
+			dlg=new DlgGuard();
+		((DlgGuard) dlg).setController((JpaController) controller);
+		try {
+			controller.addGuard(dlg.getObject());
+			table.setModel(controller.getModel(className));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+	 								+ className, JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}}
+		else if(className.equals("Product")){
+			dlg=new DlgProduct();
+		((DlgProduct) dlg).setController((JpaController) controller);
+		try {
+			controller.addProduct(dlg.getObject());
+			table.setModel(controller.getModel(className));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e, "Створення об'єкту "
+	 								+ className, JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}}
+		if (dlg == null)
+			return;
+		((JDialog) dlg).setVisible(true);
 	}
 
 	protected void showCompany() {

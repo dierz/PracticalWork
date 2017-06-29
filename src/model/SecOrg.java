@@ -138,13 +138,13 @@ public class Secorg implements Serializable, IModel {
 		setId(id);
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((head == null) ? 0 : head.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -168,8 +168,6 @@ public class Secorg implements Serializable, IModel {
 				return false;
 		} else if (!head.equals(other.head))
 			return false;
-		if (id != other.id)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -177,6 +175,7 @@ public class Secorg implements Serializable, IModel {
 			return false;
 		return true;
 	}
+
 	@Override
 	public int getObjectId() {
 		return id;

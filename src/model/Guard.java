@@ -108,6 +108,8 @@ public class Guard implements Serializable, IModel {
 		setId(id);
 	}
 
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -115,7 +117,6 @@ public class Guard implements Serializable, IModel {
 		result = prime * result + age;
 		result = prime * result + exp;
 		result = prime * result + ((fio == null) ? 0 : fio.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((rank == null) ? 0 : rank.hashCode());
 		return result;
 	}
@@ -138,8 +139,6 @@ public class Guard implements Serializable, IModel {
 				return false;
 		} else if (!fio.equals(other.fio))
 			return false;
-		if (id != other.id)
-			return false;
 		if (rank == null) {
 			if (other.rank != null)
 				return false;
@@ -147,7 +146,7 @@ public class Guard implements Serializable, IModel {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public int getObjectId() {
 		return id;

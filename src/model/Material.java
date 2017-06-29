@@ -112,6 +112,7 @@ public class Material implements Serializable, IModel {
 		setId(id);
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -119,7 +120,6 @@ public class Material implements Serializable, IModel {
 		long temp;
 		temp = Double.doubleToLongBits(density);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		temp = Double.doubleToLongBits(weight);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -137,8 +137,6 @@ public class Material implements Serializable, IModel {
 		Material other = (Material) obj;
 		if (Double.doubleToLongBits(density) != Double.doubleToLongBits(other.density))
 			return false;
-		if (id != other.id)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -148,6 +146,7 @@ public class Material implements Serializable, IModel {
 			return false;
 		return true;
 	}
+
 	@Override
 	public int getObjectId() {
 		return id;

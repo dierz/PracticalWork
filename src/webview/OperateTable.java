@@ -46,6 +46,7 @@ public class OperateTable extends HttpServlet {
 		if (operation == 4) {
 			String id = request.getParameter("id");
 			obj.setObjectId(Integer.parseInt(id));
+			SelectTable.getController().DeleteObject(obj);
 		} else if (obj instanceof Company) {
 			((Company) obj).setName(request.getParameter("CompanyName"));
 			((Company) obj).setYearprofit(Float.parseFloat(request.getParameter("CompanyYearProfit")));
@@ -53,12 +54,15 @@ public class OperateTable extends HttpServlet {
 			((Company) obj).setPhnumber(request.getParameter("CompanyPhNumber"));
 			if (operation==2) {
 				int id = Integer.parseInt(request.getParameter("CompanyId"));
-				obj.setObjectId(id);}
+				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);
+				}
 				else if(operation==1){
 				Secorg sec=(Secorg)findObject(Secorg.class,Integer.parseInt(request.getParameter("SecOrgId")));
 				((Company)obj).setSecorg(sec);
 				Rms rms=(Rms)findObject(Rms.class,Integer.parseInt(request.getParameter("RMSId")));
 				((Company)obj).setRm(rms);
+				SelectTable.getController().addCompany(obj);
 					}
 		} else if (obj instanceof Guard) {
 			((Guard) obj).setFio(request.getParameter("GuardFIO"));
@@ -67,30 +71,36 @@ public class OperateTable extends HttpServlet {
 			((Guard) obj).setRank(request.getParameter("GuardRank"));
 			if(operation==2){
 				int id = Integer.parseInt(request.getParameter("GuardId"));
-				obj.setObjectId(id);}
+				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);}
 			else if(operation==1){
 				Secorg sec=(Secorg)findObject(Secorg.class,Integer.parseInt(request.getParameter("SecOrgId")));
-				((Guard)obj).setSecorg(sec);}
+				((Guard)obj).setSecorg(sec);
+				SelectTable.getController().addGuard(obj);}
 		} else if (obj instanceof Rms) {
 			((Rms) obj).setName(request.getParameter("RMSName"));
 			((Rms) obj).setSupplysize(Integer.parseInt(request.getParameter("RMSSize")));
 			if(operation==2){
 				int id = Integer.parseInt(request.getParameter("RMSId"));
-				obj.setObjectId(id);}
+				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);}
 			else if(operation==1){
 				Material m=(Material)findObject(Material.class,Integer.parseInt(request.getParameter("MaterialId")));
-				((Rms)obj).setMaterial(m);}
+				((Rms)obj).setMaterial(m);
+				SelectTable.getController().addRms(obj);}
 		} else if (obj instanceof Product) {
 			((Product) obj).setName(request.getParameter("ProductName"));
 			((Product) obj).setAmount(Integer.parseInt(request.getParameter("ProductAmount")));
 			if(operation==2){
 				int id = Integer.parseInt(request.getParameter("ProductId"));
-				obj.setObjectId(id);}
+				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);}
 			else if(operation==1){
 				Sm sm=(Sm)findObject(Sm.class,Integer.parseInt(request.getParameter("SMId")));
 				((Product)obj).setSm(sm);
 				Company c=(Company)findObject(Company.class,Integer.parseInt(request.getParameter("CompanyId")));
 				((Product)obj).setCompany(c);
+				SelectTable.getController().addProduct(obj);
 		}
 		} else if (obj instanceof Secorg) {
 			((Secorg) obj).setName(request.getParameter("SecOrgName"));
@@ -99,7 +109,9 @@ public class OperateTable extends HttpServlet {
 			if (operation == 2) {
 				int id = Integer.parseInt(request.getParameter("SecOrgId"));
 				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);
 			} else if (operation == 1) {
+				SelectTable.getController().addSecorg(obj);
 			}
 		} else if (obj instanceof Material) {
 			((Material) obj).setName(request.getParameter("MaterialName"));
@@ -108,7 +120,9 @@ public class OperateTable extends HttpServlet {
 			if (operation == 2) {
 				int id = Integer.parseInt(request.getParameter("MaterialId"));
 				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);
 			} else if (operation == 1) {
+				SelectTable.getController().addMaterial(obj);
 			}
 		} else if (obj instanceof Sm) {
 			((Sm) obj).setName(request.getParameter("SMName"));
@@ -117,10 +131,11 @@ public class OperateTable extends HttpServlet {
 			if (operation == 2) {
 				int id = Integer.parseInt(request.getParameter("SMId"));
 				obj.setObjectId(id);
+				SelectTable.getController().EditObject(obj);
 			} else if (operation == 1) {
+				SelectTable.getController().addSm(obj);
 			}
 		}
-		SelectTable.getController().operateObject(obj, operation);
 		request.setAttribute("model", SelectTable.getTableModel(className));
 		request.setAttribute("className", className);
 		request.getRequestDispatcher("showTable.jsp").forward(request, response);
