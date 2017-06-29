@@ -33,7 +33,6 @@ public class SelectQuery extends HttpServlet {
 		JpaController controller = SelectTable.getController();
 		String query = request.getParameter("query");
 		if (query.equals("neud")) {
-			request.setAttribute("model", controller.doQuery1());
 			request.setAttribute("className", "Query1");
 		}
 		request.getRequestDispatcher("showTable.jsp").forward(request, response);

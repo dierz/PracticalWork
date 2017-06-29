@@ -18,7 +18,6 @@ import model.Rms;
 import model.Secorg;
 import model.Sm;
 
-
 public class JpaController implements IController {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("practic");
 
@@ -129,13 +128,6 @@ public class JpaController implements IController {
 			em.close();
 		}
 	}
-
-	@Override
-	public TableModel doQuery1() {
-		return null;
-		
-	}
-
 	@Override
 	public TableModel getModel(String className) {
 		try {

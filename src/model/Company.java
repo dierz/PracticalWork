@@ -12,11 +12,7 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Company.findAll", query="SELECT c FROM Company c")
 public class Company implements Serializable, IModel {
-	@Override
-	public String toString() {
-		return "Company [id=" + id + ", address=" + address + ", name=" + name + ", phnumber=" + phnumber
-				+ ", yearprofit=" + yearprofit + ", rm=" + rm.getName() + ", secorg=" + secorg.getName() + "]";
-	}
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -88,7 +84,11 @@ public class Company implements Serializable, IModel {
 	public void setYearprofit(double yearprofit) {
 		this.yearprofit = yearprofit;
 	}
-
+	@Override
+	public String toString() {
+		return "Company [id=" + id + ", address=" + address + ", name=" + name + ", phnumber=" + phnumber
+				+ ", yearprofit=" + yearprofit + ", rm=" + rm.getName() + ", secorg=" + secorg.getName() + "]";
+	}
 	public Rms getRm() {
 		return this.rm;
 	}

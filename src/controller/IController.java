@@ -8,5 +8,4 @@ public interface IController {
 	public void add(Object obj);
 	public void edit(int id, Object obj);
 	public void delete(int id, String className);
-	public TableModel doQuery1();
 }
